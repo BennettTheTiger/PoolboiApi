@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>PoolBoi</title>
+    
+</head>
+<body>
+    <h2>Pool Boi Data</h2>
+    <form id="waterResults" >
+        <select id="waterbody">
+                <option value="HotTub">Hot Tub</option>
+                <option value="pool" selected>Pool</option>
+        </select>
+        <label for="pH">PH</label>
+        <input id="pH" class="formElement" type="range" min="1" max="14" value="7" step=".1" onchange="handleChange"/><br/>
+        <label for="chlorine">Chlorine</label>
+        <input id="chlorine" class="formElement" type="range" min="0" max="5" value="2" step=".1" onchange="handleChange"/><br/>
+        <label for="alkalinity">alkalinity</label>
+        <input id="alkalinity" class="formElement" type="range" min="50" max="150" value="100" step="1" onchange="handleChange"/><br/>
+        <label for="hardness">Hardness</label>
+        <input id="hardness" class="formElement" type="range" min="150" max="500" value="300" step="1" onchange="handleChange"/><br/>
+        <label for="cyanuricAcid">cyanuricAcid</label>
+        <input id="cyanuricAcid" class="formElement" type="range" min="50" max="150" value="100" step="1" onchange="handleChange"/><br/>
+        <label for="solids">Solids</label>
+        <input id="solids" class="formElement" type="range" min="50" max="150" value="100" step="1" onchange="handleChange"/><br/>
+        <label>Notes:</label><input class="formElement" type="textArea" placeholder="Add Notes"/>
+        <button>Submit</button>
+    </form>
+
+    <div>
+    <p>Viewing water test history for 
+        <select id="waterbody">
+                <option value="HotTub">Hot Tub</option>
+                <option value="pool" selected>Pool</option>
+        </select>
+        <button>Get History</button>
+    </p>
+        <div>
+            
+        </div>
+    </div>
+    
+</body>
+<script src="bundle.js" type="text/javascript"></script>
+</html>
