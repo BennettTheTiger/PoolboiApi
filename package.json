@@ -15,6 +15,10 @@
     "watch": "babel --watch ./client --out-file ./hosted/bundle.js",
     "nodemon": "nodemon --watch ./src ./src/server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BennettTheTiger/PoolboiApi.git"
+  },
   "author": "Bennett Schoonerman",
   "license": "ISC",
   "devDependencies": {
