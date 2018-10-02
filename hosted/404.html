@@ -4,9 +4,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PoolBoi</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
 </head>
 <body>
    <h1>Opps we cant find what you're looking for!</h1>
-    <a href="/"><button>Back to App</button></a>
+	<div>
+    	<a href="/"><button>Back to App</button></a>
+	</div>
 </body>
+<script>
+var bubbles = [];
+var bubbleNum = 20;
+var xVariation = 2;
+	
+function setup() {
+  createCanvas(window.innerWidth, window.innerHeight);
+  noStroke()
+	//frameRate(10);
+	//make random bubble objects {x,y,size,speed}
+	for(var i = 0; i< bubbleNum; i++){
+		bubbles[i] = {x:random(window.innerWidth),y:random(window.innerHeight),size:random(3,10),speed:0};
+	}
+	fill('rgba(255,255,255, 0.4)');
+	console.dir(bubbles);
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+//animation loop
+function draw() {
+    background('#164899');
+	bubbles.forEach(function(bub,index){
+		moveBubbles(bub);
+		if(bub.y < -10) newBubble(index);
+	});
+ 
+}
+	//makes a new bubble at a specified index
+	function newBubble(index){
+		bubbles[index] = {x:random(window.innerWidth),y:window.innerHeight,size:random(3,10),speed:0};
+	}
+	
+function moveBubbles(bubble){
+	bubble.x += random(-xVariation,xVariation);
+	bubble.speed += bubble.size/100; 
+	bubble.y -= bubble.speed;
+	//draw the bubble
+	ellipse(Math.round(bubble.x), Math.round(bubble.y), Math.round(bubble.size), Math.round(bubble.size));
+	
+}
+</script>
+<style type="text/css">
+	
+canvas{
+	position: fixed;
+	top:0px;
+	left:0px;
+	z-index: 0;
+	}
+h1{
+		position: relative;
+		z-index: 5;
+		color: #fff;
+		text-align: center;
+		padding-top: 250px;
+		font-family: 'Bai Jamjuree', sans-serif;
+	}
+button{
+		position: relative;
+		z-index: 10;
+		text-align: center;
+		width:200px;
+		height: 30px;
+		border-radius: 10px;
+	}
+	div{
+		width: 100vw;
+		text-align: center;
+}
+</style>
 </html>
